@@ -1,8 +1,8 @@
 version: "2.24.3"
 
 networks:
-    api_network:
-        name: api_network
+    api_tg_network:
+        name: api_tg_network
 
 services:
     php-apache:
@@ -10,7 +10,7 @@ services:
         container_name: api-back-tg
         restart: always
         ports:
-            - "8080:80"
+            - "8051:80"
         volumes:
             - ./:/app
         environment:
@@ -18,7 +18,7 @@ services:
         depends_on:
             - mysql-db
         networks:
-            api_network:
+            api_tg_network:
                 aliases:
                     - api-back
 
@@ -33,6 +33,6 @@ services:
         environment:
             MYSQL_ROOT_PASSWORD: "123456"
         networks:
-            api_network:
+            api_tg_network:
                 aliases:
                     - mysql
