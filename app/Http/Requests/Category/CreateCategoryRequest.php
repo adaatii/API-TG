@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Employee;
+namespace App\Http\Requests\Category;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class DeleteEmployeeRequest extends FormRequest
+class CreateCategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,18 +22,16 @@ class DeleteEmployeeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id' => [
+            'description' => [
                 'required',
-                'integer',
-                'exists:categories'
+                'string',
+                'unique:categories',
+                'max:255'
+            ],
+            'status' => [
+                'required',
+                'boolean'
             ]
         ];
-    }
-
-    public function prepareForValidation(): void
-    {
-        $this->merge([
-            'id' => $this->route('id'),
-        ]);
     }
 }

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Employee;
+namespace App\Http\Requests\Product;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class DeleteEmployeeRequest extends FormRequest
+class ListProductRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,18 +22,7 @@ class DeleteEmployeeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id' => [
-                'required',
-                'integer',
-                'exists:categories'
-            ]
+            //
         ];
-    }
-
-    public function prepareForValidation(): void
-    {
-        $this->merge([
-            'id' => $this->route('id'),
-        ]);
     }
 }

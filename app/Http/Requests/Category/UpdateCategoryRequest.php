@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Employee;
+namespace App\Http\Requests\Category;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateEmployeeRequest extends FormRequest
+class UpdateCategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,22 +25,12 @@ class UpdateEmployeeRequest extends FormRequest
             'id' => [
                 'required',
                 'integer',
-                'exists:employees'
+                'exists:categories'
             ],
-            'name' => [
-                'string'
-            ],
-            'cpf' => [
+            'description' => [
                 'string',
-                'unique:employees'
-            ],
-            'email' => [
-                'email',
-                'unique:employees'
-            ],
-            'password' => [
-                'string',
-                'min:8'
+                'unique:categories',
+                'max:255'
             ],
             'status' => [
                 'boolean'
