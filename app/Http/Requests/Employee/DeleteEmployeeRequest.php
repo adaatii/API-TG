@@ -25,7 +25,7 @@ class DeleteEmployeeRequest extends FormRequest
             'id' => [
                 'required',
                 'integer',
-                'exists:categories'
+                'exists:employees'
             ]
         ];
     }
