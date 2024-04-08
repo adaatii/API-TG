@@ -54,4 +54,21 @@ class UpdateEmployeeRequest extends FormRequest
             'id' => $this->route('id'),
         ]);
     }
+
+    public function messages()
+    {
+        return [
+            'id.required' => 'The id field is required.',
+            'id.integer' => 'The id must be an integer.',
+            'id.exists' => 'The selected id is invalid.',
+            'name.string' => 'The name must be a string.',
+            'cpf.string' => 'The CPF must be a string.',
+            'cpf.unique' => 'The CPF has already been taken.',
+            'email.email' => 'The email must be a valid email address.',
+            'email.unique' => 'The email has already been taken.',
+            'password.string' => 'The password must be a string.',
+            'password.min' => 'The password must be at least 8 characters.',
+            'status.boolean' => 'The status field must be true or false.'
+        ];
+    }
 }

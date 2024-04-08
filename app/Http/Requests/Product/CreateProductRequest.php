@@ -43,4 +43,21 @@ class CreateProductRequest extends FormRequest
             ]
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'description.required' => 'The description field is required.',
+            'description.string' => 'The description must be a string.',
+            'description.unique' => 'The description has already been taken.',
+            'description.max' => 'The description may not be greater than 255 characters.',
+            'price.required' => 'The price field is required.',
+            'price.numeric' => 'The price must be a number.',
+            'status.required' => 'The status field is required.',
+            'status.boolean' => 'The status field must be true or false.',
+            'category_id.required' => 'The category id field is required.',
+            'category_id.integer' => 'The category id must be an integer.',
+            'category_id.exists' => 'The selected category id is invalid.'
+        ];
+    }
 }

@@ -22,10 +22,27 @@ class ListEmployeeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'string',
-            'cpf' => 'string',
-            'email' => 'string',
-            'status' => 'string'
+            'id' => [
+                'required',
+                'integer',
+                'exists:employees'
+            ],
+        ];
+    }
+
+    public function prepareForValidation(): void
+    {
+        $this->merge([
+            'id' => $this->route('id'),
+        ]);
+    }
+
+    public function messages()
+    {
+        return [
+            'id.required' => 'The id field is required.',
+            'id.integer' => 'The id must be an integer.',
+            'id.exists' => 'The selected id is invalid.'
         ];
     }
 }

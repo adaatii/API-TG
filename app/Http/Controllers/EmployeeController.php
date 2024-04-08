@@ -31,7 +31,7 @@ class EmployeeController extends Controller
         return $response ? response()->json(['error' => false, 'body' => ['message' => 'Employees found successfully!', 'employees' => $response]], 200) : response()->json(['error' => true, 'body' => ['message' => 'Error finding employees!']], 400);
     }
 
-    public function getEmployee($id)
+    public function getEmployee(ListEmployeeRequest $id)
     {
         $response = $this->employee->getEmployee($id);
         return $response ? response()->json(['error' => false, 'body' => ['message' => 'Employee found successfully!', 'employee' => $response]], 200) : response()->json(['error' => true, 'body' => ['message' => 'Error finding employee!']], 400);

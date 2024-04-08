@@ -22,7 +22,20 @@ class ListProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'id' => [
+                'required',
+                'integer',
+                'exists:products'
+            ],
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'id.required' => 'The id field is required.',
+            'id.integer' => 'The id must be an integer.',
+            'id.exists' => 'The selected id is invalid.'
         ];
     }
 }

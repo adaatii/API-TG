@@ -47,4 +47,23 @@ class CreateEmployeeRequest extends FormRequest
             ]
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'The name field is required.',
+            'name.string' => 'The name must be a string.',
+            'cpf.required' => 'The CPF field is required.',
+            'cpf.string' => 'The CPF must be a string.',
+            'cpf.unique' => 'The CPF has already been taken.',
+            'email.required' => 'The email field is required.',
+            'email.email' => 'The email must be a valid email address.',
+            'email.unique' => 'The email has already been taken.',
+            'password.required' => 'The password field is required.',
+            'password.string' => 'The password must be a string.',
+            'password.min' => 'The password must be at least 8 characters.',
+            'status.required' => 'The status field is required.',
+            'status.boolean' => 'The status field must be true or false.',
+        ];
+    }
 }

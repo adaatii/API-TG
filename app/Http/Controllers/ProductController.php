@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Product\CreateProductRequest;
 use App\Http\Requests\Product\DeleteProductRequest;
+use App\Http\Requests\Product\ListProductRequest;
 use App\Http\Requests\Product\UpdateProductRequest;
 use App\Models\Product\Product;
 
@@ -30,7 +31,7 @@ class ProductController extends Controller
         return $response ? response()->json(['error' => false, 'body' => ['message' => 'Products found successfully!', 'products' => $response]], 200) : response()->json(['error' => true, 'body' => ['message' => 'Error finding products!']], 400);
     }
 
-    public function getProduct($id)
+    public function getProduct(ListProductRequest $id)
     {
         $response = $this->product->getProduct($id);
 

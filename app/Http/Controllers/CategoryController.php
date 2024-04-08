@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Category\CreateCategoryRequest;
 use App\Http\Requests\Category\DeleteCategoryRequest;
+use App\Http\Requests\Category\ListCategoryRequest;
 use App\Http\Requests\Category\UpdateCategoryRequest;
 use App\Models\Category\Category;
 
@@ -30,7 +31,7 @@ class CategoryController extends Controller
         return $response ? response()->json(['error' => false, 'body' => ['message' => 'Categories found successfully!', 'categories' => $response]], 200) : response()->json(['error' => true, 'body' => ['message' => 'Error finding categories!']], 400);
     }
 
-    public function getCategory($id)
+    public function getCategory(ListCategoryRequest $id)
     {
         $response = $this->category->getCategory($id);
 
