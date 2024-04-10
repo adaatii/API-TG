@@ -41,10 +41,6 @@ class CreateEmployeeRequest extends FormRequest
                 'string',
                 'min:8'
             ],
-            'status' => [
-                'required',
-                'boolean',
-            ]
         ];
     }
 
@@ -62,8 +58,6 @@ class CreateEmployeeRequest extends FormRequest
             'password.required' => 'The password field is required.',
             'password.string' => 'The password must be a string.',
             'password.min' => 'The password must be at least 8 characters.',
-            'status.required' => 'The status field is required.',
-            'status.boolean' => 'The status field must be true or false.',
         ];
     }
 }

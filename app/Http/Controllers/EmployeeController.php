@@ -8,6 +8,7 @@ use App\Http\Requests\Employee\DeleteEmployeeRequest;
 use App\Http\Requests\Employee\ListEmployeeRequest;
 use App\Http\Requests\Employee\UpdateEmployeeRequest;
 use App\Models\Employee\Employee;
+use Illuminate\Support\Facades\Hash;
 
 class EmployeeController extends Controller
 {
@@ -21,6 +22,8 @@ class EmployeeController extends Controller
     public function createEmployee(CreateEmployeeRequest $request)
     {
         $data = $request->validated();
+
+        $data['password'] = Hash::make($data['password']);
 
         return $this->employee->createEmployee($data) ? response()->json(['message' => 'Employee created successfully'], 201) : response()->json(['message' => 'Employee not created'], 400);
     }
