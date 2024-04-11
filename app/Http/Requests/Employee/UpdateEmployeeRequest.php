@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Employee;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateEmployeeRequest extends FormRequest
 {
@@ -32,11 +33,11 @@ class UpdateEmployeeRequest extends FormRequest
             ],
             'cpf' => [
                 'string',
-                'unique:employees'
+                Rule::unique('employees')->ignore(request()->id),
             ],
             'email' => [
                 'email',
-                'unique:employees'
+                Rule::unique('employees')->ignore(request()->id),
             ],
             'password' => [
                 'string',
