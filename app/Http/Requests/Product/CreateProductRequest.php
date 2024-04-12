@@ -33,7 +33,6 @@ class CreateProductRequest extends FormRequest
                 'numeric',
             ],
             'status' => [
-                'required',
                 'boolean'
             ],
             'category_id' => [
