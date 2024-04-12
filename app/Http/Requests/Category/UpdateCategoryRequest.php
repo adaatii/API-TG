@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Category;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateCategoryRequest extends FormRequest
 {
@@ -29,12 +30,9 @@ class UpdateCategoryRequest extends FormRequest
             ],
             'description' => [
                 'string',
-                'unique:categories',
+                Rule::unique('categories')->ignore(request()->id),
                 'max:255'
             ],
-            'status' => [
-                'boolean'
-            ]
         ];
     }
 
@@ -54,7 +52,6 @@ class UpdateCategoryRequest extends FormRequest
             'description.string' => 'The description must be a string.',
             'description.unique' => 'The description has already been taken.',
             'description.max' => 'The description may not be greater than 255 characters.',
-            'status.boolean' => 'The status field must be true or false.'
         ];
     }
 }

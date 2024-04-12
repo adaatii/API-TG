@@ -28,10 +28,6 @@ class CreateCategoryRequest extends FormRequest
                 'unique:categories',
                 'max:255'
             ],
-            'status' => [
-                'required',
-                'boolean'
-            ]
         ];
     }
 
@@ -42,8 +38,6 @@ class CreateCategoryRequest extends FormRequest
             'description.string' => 'The description must be a string.',
             'description.unique' => 'The description has already been taken.',
             'description.max' => 'The description may not be greater than 255 characters.',
-            'status.required' => 'The status field is required.',
-            'status.boolean' => 'The status field must be true or false.'
         ];
     }
 }
