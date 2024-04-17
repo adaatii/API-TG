@@ -18,3 +18,5 @@ yarn-error.log
 /.idea
 /.vscode
 /data/
+/public/.htaccess
+/httpd_confi.txt

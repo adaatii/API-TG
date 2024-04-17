@@ -44,6 +44,9 @@ class EmployeeController extends Controller
     {
         $data = $request->validated();
 
+        if (isset($data['password']))
+            $data['password'] = Hash::make($data['password']);
+
         $response = $this->employee->updateEmployee($data);
         return $response ? response()->json(['message' => 'Employee updated successfully'], 200) : response()->json(['message' => 'Employee not updated'], 400);
     }

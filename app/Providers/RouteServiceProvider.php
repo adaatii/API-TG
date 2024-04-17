@@ -33,18 +33,26 @@ class RouteServiceProvider extends ServiceProvider
         $this->routes(function () {
             Route::namespace($this->namespace)
                 ->middleware('api')
+                ->middleware('jwt')
                 ->prefix('employee')
                 ->group(base_path('routes/system/employee.php'));
 
             Route::namespace($this->namespace)
                 ->middleware('api')
+                ->middleware('jwt')
                 ->prefix('category')
                 ->group(base_path('routes/system/category.php'));
 
             Route::namespace($this->namespace)
                 ->middleware('api')
+                ->middleware('jwt')
                 ->prefix('product')
                 ->group(base_path('routes/system/product.php'));
+
+            Route::namespace($this->namespace)
+                ->middleware('api')
+                ->prefix('login')
+                ->group(base_path('routes/system/login.php'));
         });
     }
 }
