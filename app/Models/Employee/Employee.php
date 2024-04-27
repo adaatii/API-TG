@@ -17,12 +17,16 @@ class Employee extends Model implements JWTSubject, Authenticatable
 
     public function updateEmployee($data)
     {
+        $data['status'] = true;
         return $this->where('id', $data['id'])->update($data) ? true : false;
     }
 
     public function deleteEmployee($id)
     {
-        return $this->where('id', $id)->delete() ? true : false;
+        $employee = $this->find($id);
+        $employee->status = false;
+
+        return ($employee->update()) ? true : false;
     }
 
     public function getEmployee($id)

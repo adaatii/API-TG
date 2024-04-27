@@ -46,10 +46,10 @@ class CreateProductRequest extends FormRequest
     public function messages()
     {
         return [
-            'description.required' => 'The description field is required.',
-            'description.string' => 'The description must be a string.',
-            'description.unique' => 'The description has already been taken.',
-            'description.max' => 'The description may not be greater than 255 characters.',
+            'description.required' => 'The product field is required.',
+            'description.string' => 'The product must be a string.',
+            'description.unique' => 'The product has already been taken.',
+            'description.max' => 'The product may not be greater than 255 characters.',
             'price.required' => 'The price field is required.',
             'price.numeric' => 'The price must be a number.',
             'status.required' => 'The status field is required.',

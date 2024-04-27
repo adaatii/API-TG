@@ -13,12 +13,16 @@ class Product extends Model
 
     public function updateProduct($data)
     {
+        $data['status'] = true;
         return $this->where('id', $data['id'])->update($data) ? true : false;
     }
 
     public function deleteProduct($id)
     {
-        return $this->where('id', $id)->delete() ? true : false;
+        $product = $this->find($id);
+        $product->status = false;
+
+        return ($product->update()) ? true : false;
     }
 
     public function getProduct($id)

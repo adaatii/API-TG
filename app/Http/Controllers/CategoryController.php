@@ -33,7 +33,8 @@ class CategoryController extends Controller
 
     public function getCategory(ListCategoryRequest $id)
     {
-        $response = $this->category->getCategory($id);
+        $data = $id->validated();
+        $response = $this->category->getCategory($data['id']);
 
         return $response ? response()->json(['error' => false, 'body' => ['message' => 'Category found successfully!', 'category' => $response]], 200) : response()->json(['error' => true, 'body' => ['message' => 'Error finding category!']], 400);
     }

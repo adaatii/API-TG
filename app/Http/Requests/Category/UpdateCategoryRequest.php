@@ -49,9 +49,9 @@ class UpdateCategoryRequest extends FormRequest
             'id.required' => 'The id field is required.',
             'id.integer' => 'The id must be an integer.',
             'id.exists' => 'The selected id is invalid.',
-            'description.string' => 'The description must be a string.',
-            'description.unique' => 'The description has already been taken.',
-            'description.max' => 'The description may not be greater than 255 characters.',
+            'description.string' => 'The category must be a string.',
+            'description.unique' => 'The category has already been taken.',
+            'description.max' => 'The category may not be greater than 255 characters.',
         ];
     }
 }

@@ -33,7 +33,8 @@ class ProductController extends Controller
 
     public function getProduct(ListProductRequest $id)
     {
-        $response = $this->product->getProduct($id);
+        $data = $id->validated();
+        $response = $this->product->getProduct($data['id']);
 
         return $response ? response()->json(['error' => false, 'body' => ['message' => 'Product found successfully!', 'product' => $response]], 200) : response()->json(['error' => true, 'body' => ['message' => 'Error finding product!']], 400);
     }

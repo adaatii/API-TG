@@ -30,6 +30,13 @@ class ListProductRequest extends FormRequest
         ];
     }
 
+    public function prepareForValidation(): void
+    {
+        $this->merge([
+            'id' => $this->route('id'),
+        ]);
+    }
+
     public function messages()
     {
         return [

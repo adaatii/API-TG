@@ -26,14 +26,14 @@ class ListCategoryRequest extends FormRequest
                 'integer',
                 'exists:categories'
             ],
-            'description' => [
-                'string',
-                'max:255'
-            ],
-            'status' => [
-                'boolean'
-            ]
         ];
+    }
+
+    public function prepareForValidation(): void
+    {
+        $this->merge([
+            'id' => $this->route('id'),
+        ]);
     }
 
     public function messages()
@@ -41,9 +41,6 @@ class ListCategoryRequest extends FormRequest
         return [
             'id.integer' => 'The id must be an integer.',
             'id.exists' => 'The selected id is invalid.',
-            'description.string' => 'The description must be a string.',
-            'description.max' => 'The description may not be greater than 255 characters.',
-            'status.boolean' => 'The status field must be true or false.'
         ];
     }
 }

@@ -13,12 +13,16 @@ class Category extends Model
 
     public function updateCategory($data)
     {
+        $data['status'] = true;
         return $this->where('id', $data['id'])->update($data) ? true : false;
     }
 
     public function deleteCategory($id)
     {
-        return $this->where('id', $id)->delete() ? true : false;
+        $category = $this->find($id);
+        $category->status = false;
+
+        return ($category->update()) ? true : false;
     }
 
     public function getCategory($id)

@@ -34,10 +34,10 @@ class CreateCategoryRequest extends FormRequest
     public function messages()
     {
         return [
-            'description.required' => 'The description field is required.',
-            'description.string' => 'The description must be a string.',
-            'description.unique' => 'The description has already been taken.',
-            'description.max' => 'The description may not be greater than 255 characters.',
+            'description.required' => 'The category field is required.',
+            'description.string' => 'The category must be a string.',
+            'description.unique' => 'The category has already been taken.',
+            'description.max' => 'The category may not be greater than 255 characters.',
         ];
     }
 }
