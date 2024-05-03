@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Employee;
 
+use App\Rules\Employee\ValidateIdentity;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CreateEmployeeRequest extends FormRequest
@@ -30,6 +31,7 @@ class CreateEmployeeRequest extends FormRequest
                 'required',
                 'string',
                 'unique:employees',
+                new ValidateIdentity(),
             ],
             'email' => [
                 'required',
