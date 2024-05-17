@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Authentication;
 
+use App\Rules\ValidateStatus;
 use Illuminate\Foundation\Http\FormRequest;
 
 class AuthenticationResquest extends FormRequest
@@ -25,7 +26,8 @@ class AuthenticationResquest extends FormRequest
             'email' => [
                 'required',
                 'email',
-                'exists:employees,email'
+                'exists:employees,email',
+                new ValidateStatus($this->email),
             ],
             'password' => [
                 'required',
